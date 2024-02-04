@@ -37,12 +37,7 @@ if "chat_session" not in st.session_state:
 # Display the chatbot's title on the page
 st.title("🤖 Gemini Pro - ChatBot")
 
-# Display the chat history
-for message in st.session_state.chat_session.history:
-    with st.chat_message(translate_role_for_streamlit(message.role)):
-        st.markdown(message.parts[0].text)
-        # Add voice output for each message
-        engine.say(message.parts[0].text)
+
 
 
 # Input field for user's message
@@ -52,7 +47,7 @@ if user_prompt:
     # Add user's message to chat and display it
     st.chat_message("user").markdown(user_prompt)
     # Add voice output for user's message
-    engine.say(user_prompt)
+
 
 
     # Send user's message to Gemini-Pro and get the response
